@@ -1,0 +1,16 @@
+{
+  "extends": [
+    null,
+    "tslint:recommended",
+    "tslint-config-prettier",
+    "tslint-plugin-prettier",
+    "tslint-etc"
+  ],
+  "rules": {
+    "prettier": true,
+    "no-unused-declaration": true,
+    "max-line-length": [false, 90],
+    "quotemark": [true, "single", "avoid-escape"],
+    "semicolon": [true, "never"]
+  }
+}
