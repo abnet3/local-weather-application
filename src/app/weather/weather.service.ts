@@ -1,21 +1,43 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { map } from 'rxjs'
-import { environment } from 'src/enviroments/enviroment'
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
+import { environment } from '../../environments/environment'
 import { ICurrentWeather } from '../interfaces'
-import { ICurrentWeatherData } from './icurrent-weather-data'
+
+interface ICurrentWeatherData {
+  weather: [
+    {
+      description: string
+      icon: string
+    }
+  ]
+  main: {
+    temp: number
+  }
+  sys: {
+    country: string
+  }
+  dt: number
+  name: string
+}
+
+export interface IWeatherService {
+  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather>
+}
 
 @Injectable({
   providedIn: 'root',
 })
-export class WeatherService {
+export class WeatherService implements IWeatherService {
   constructor(private httpClient: HttpClient) {}
 
-  getCurrentWeather(city: string, country: string) {
+  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
     const uriParams = new HttpParams()
       .set('q', `${city},${country}`)
-      .set('appid', `${environment.appId}`)
+      .set('appid', environment.appId)
+
     return this.httpClient
       .get<ICurrentWeatherData>(
         `${environment.baseUrl}api.openweathermap.org/data/2.5/weather`,
@@ -34,6 +56,7 @@ export class WeatherService {
       description: data.weather[0].description,
     }
   }
+
   private convertKelvinToFahrenheit(kelvin: number): number {
     return (kelvin * 9) / 5 - 459.67
   }

@@ -7,10 +7,8 @@ describe('WeatherService', () => {
   let service: WeatherService
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-    }),
-      (service = TestBed.inject(WeatherService))
+    TestBed.configureTestingModule({ imports: [HttpClientTestingModule] })
+    service = TestBed.inject(WeatherService)
   })
 
   it('should be created', () => {
