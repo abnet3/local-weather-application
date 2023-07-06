@@ -10,9 +10,6 @@ docker:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
       - run: npm ci
-      - run:
-    name: Display Node.js version
-    command: node -v
       # - run: cd ./node_modules/protractor && npm i webdrivermanager@latest
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
