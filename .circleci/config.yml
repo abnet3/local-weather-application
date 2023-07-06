@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package-lock.json" }}
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
       # - run: cd ./node_modules/protractor && npm i webdrivermanager@latest
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
