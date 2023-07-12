@@ -22,7 +22,7 @@ jobs:
           command: node -v
       - run: npm run build --configuration:production
       - run: npm run test:coverage --watch=false
-      # - run: npm run e2e
+      - run: ng e2e
       - run:
           name: Tar & Gzip compiled app
           command: tar zcf dist.tar.gz dist/local-weather-application
