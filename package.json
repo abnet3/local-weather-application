@@ -94,5 +94,12 @@
     "imageName": "custom_app_name",
     "imagePort": "3000",
     "internalContainerPort": "3000"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.",
+  "main": " protractor.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }
