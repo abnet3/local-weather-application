@@ -1,16 +1,16 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
+import { MatButtonModule } from '@angular/material/button'
+import { MatIconModule } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 
-import { SideNavComponent } from './side-nav.component';
+import { SideNavComponent } from './side-nav.component'
 
 describe('SideNavComponent', () => {
-  let component: SideNavComponent;
-  let fixture: ComponentFixture<SideNavComponent>;
+  let component: SideNavComponent
+  let fixture: ComponentFixture<SideNavComponent>
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -22,17 +22,17 @@ describe('SideNavComponent', () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-      ]
-    }).compileComponents();
-  }));
+      ],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SideNavComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(SideNavComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
