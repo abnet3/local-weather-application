@@ -22,7 +22,23 @@ jobs:
           command: node -v
       - run: npm run build --configuration:production
       - run: npm run test:coverage --watch=false
-      - run: ng e2e
+      # - run: ng e2e
+        orbs:
+  # This Orb includes the following:
+  # - checkout current repository
+  # - npm install with caching
+  # - start the server
+  # - wait for the server to respond
+  # - run Cypress tests
+  # - store videos and screenshots as artifacts on CircleCI
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          start: npm start
+          wait-on: 'http://localhost:4200'
+          store_artifacts: true
       - run:
           name: Tar & Gzip compiled app
           command: tar zcf dist.tar.gz dist/local-weather-application
