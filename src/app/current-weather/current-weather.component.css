@@ -1,0 +1,17 @@
+.right {
+  text-align: right;
+}
+.no-margin {
+  margin-bottom: 0;
+}
+.mat-display-3 {
+  font-size: 48px !important;
+}
+
+.mat-display-1 {
+  font-size: 40px !important;
+}
+.unit {
+  vertical-align: super;
+  /* font-size: 50px; */
+}
