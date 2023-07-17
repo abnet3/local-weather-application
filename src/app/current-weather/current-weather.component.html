@@ -1,7 +1,5 @@
-<div *ngIf="!current">
-  no data
-</div>
-<div *ngIf="current">
+<div *ngIf="current$ | async as current; else loading">
+
   <div fxLayout="row" fxLayoutAlign="center center">
     <div fxFlex="66%" class="mat-title no-margin">
       {{current.city}}, {{current.country}}
@@ -28,3 +26,6 @@
     </div>
   </div>
 </div>
+<ng-template #loading>
+  Loading...
+</ng-template>
